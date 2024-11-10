@@ -1,0 +1,6 @@
+field_id,crop,planting_date,soil_type,yield
+F001,Corn,2024-04-15,Loam,156.2
+F002,Soybeans,2024-05-01,Clay,45.8
+F003,Corn,2024-04-18,Sandy Loam,168.5
+F004,Wheat,2024-03-15,Clay,65.4
+F005,Corn,2024-04-20,Loam,162.3

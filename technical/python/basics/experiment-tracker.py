@@ -41,32 +41,63 @@ class ExperimentTracker:
             {len(self.experiments)} experiments logged
             Best accuracy: {self.get_best_experiment()['accuracy']:.2f}
             """
+    
+    def get_failed_experiments(self) -> str:
+        count_of_failed_experiments = sum( 1 for exp in self.experiments if exp['accuracy'] < 0.5)
+
+        return f""" {count_of_failed_experiments} experiments failed"""
+
+
+    def find_best_parameters(self, parameter_name: str) -> Dict:
+        for exp in self.experiments:
+                    
+        best_experiment = max (self.experiments, key=lambda x : x[parameter_name])
+
+        return f""" {best_experiment[parameter_name]} performed best with had the best average accuracy of {best.experiment['accuracy']} """
+
+
 
 # Let's use it
 tracker = ExperimentTracker()
 
-# Dictionary with typical ML parameters
-model_params = {
-    'learning_rate': 0.01,
-    'epochs': 100,
-    'batch_size': 32
-}
 
-# Log some experiments
-tracker.log_experiment(
-    model_name="SimpleNN",
-    parameters=model_params,
-    accuracy=0.85,
-    notes="First try"
-)
+tracker.log_experiment("CNN", {'learning_rate': 0.1}, 0.82)
+tracker.log_experiment("CNN", {'learning_rate': 0.01}, 0.88)
+tracker.log_experiment("CNN", {'learning_rate': 0.01}, 0.85)
+best_params = tracker.find_best_parameters('learning_rate')
 
-# Using dictionary unpacking to modify parameters
-tracker.log_experiment(
-    model_name="SimpleNN",
-    parameters={**model_params, 'learning_rate': 0.001},  # Modified learning rate
-    accuracy=0.88,
-    notes="Lower learning rate"
-)
+# # Dictionary with typical ML parameters
+# model_params = {
+#     'learning_rate': 0.01,
+#     'epochs': 100,
+#     'batch_size': 32
+# }
 
+# # Log some experiments
+# tracker.log_experiment(
+#     model_name="SimpleNN",
+#     parameters=model_params,
+#     accuracy=0.85,
+#     notes="First try"
+# )
+
+# # Using dictionary unpacking to modify parameters
+# tracker.log_experiment(
+#     model_name="SimpleNN",
+#     parameters={**model_params, 'learning_rate': 0.001},  # Modified learning rate
+#     accuracy=0.88,
+#     notes="Lower learning rate"
+# )
+
+# # Test 2; Erro Validation
+# tracker.log_experiment(
+#     model_name="SimpleNN",
+#     parameters={'one kv pair': '.01'},
+#     accuracy=0.85,
+#     notes="First try"
+# )
+
+# tracker.log_experiment("TestModel", {'lr': 0.01}, 0.3, "Failed run")
+# print(tracker.get_failed_experiments())
 # Print status
 print(tracker)
