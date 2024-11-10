@@ -1,5 +1,5 @@
 # Discussion on Rich Sutton's "The Bitter Lesson"
-[Link text](https://claude.ai/chat/ecf108b5-bf10-428f-af51-2698784a0325)
+[Claude Conversation](https://claude.ai/chat/ecf108b5-bf10-428f-af51-2698784a0325)
 
 ## Core Thesis
 Rich Sutton's "The Bitter Lesson" argues that in artificial intelligence research, methods leveraging computation and search have historically outperformed approaches based on human-designed features and knowledge. The "bitter" aspect refers to researchers' difficulty accepting that engineering human knowledge into AI systems may be less effective than creating systems that learn from large amounts of data and computation.
